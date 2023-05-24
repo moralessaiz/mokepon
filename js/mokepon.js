@@ -70,7 +70,6 @@ let lienzo = mapa.getContext("2d") //del canva, porque se va a trabajar en dos d
 
 let intervalo
 
-
 class Mokepon {
     constructor(nombre, foto, vida) {
         this.nombre = nombre
