@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Alkatra&family=Josefin+Sans:ital,wght@1,500&display=swap');
+
+body{
+    font-family: 'Josefin Sans', sans-serif;
+    background-color: #0E185F;
+}
+
+#seleccionar-mascota {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.titulo {
+    color: white;
+    width: 780px;
+    height: 48px;
+    font-size: 50px;
+    font-family: 'Alkatra', cursive;
+    text-align: center;
+}
+
+.subtitulo {
+    color: white;
+    font-size: 32px;
+}
+
+.tarjetas, .tarjetas-ataques{
+    display: flex;
+    gap: 10px;
+}
+
+.tarjeta-de-mokepon{
+    width: 180px;
+    height: 100px;
+    background-color: #2FA4FF;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    cursor: pointer;
+    border: 2px solid white;
+    font-size: 16px;
+}
+
+.tarjeta-de-mokepon img {
+    width: 80px;
+}
+
+#boton-mascota {
+    width: 100px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: #00FFDD;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 16px;
+    border: 2px solid white;
+    margin-top: 30px;
+    cursor: pointer;
+}
+
+input{
+    display: none;
+}
+
+input:checked + label {
+    background-color: #E8FFC2;
+    color: black;
+}
+
+#seleccionar-ataque{
+    flex-direction: column;
+    align-items: center;
+}
+
+.boton-ataque {
+    background-color: #E8FFC2;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 100%;
+    border: 2px solid white;
+    width: 80px;
+    color: black;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 16px;
+}
+
+#mensajes{
+    width: 280px;
+    background: #2FA4FF;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-size: 16px;
+    flex-direction: column;
+    align-items: center;
+}
+
+#boton-reiniciar {
+    border: none;
+    background-color:#00FFDD;
+    border: 1px solid black;
+    color: #0E185F;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.ataques { /* PADRE */
+    display: grid;
+    grid-template-columns: 100px 100px;
+}
+
+.ataques-jugador, .ataques-enemigo { /* HIJO Y PADRE A LA VEZ */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #E8FFC2;
+}
+
+#vidas-jugador, #vidas-enemigo{
+    font-size: 32px;
+    margin-bottom: 0;
+}
+
+#ver-mapa {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#mapa {
+    border: 2px solid white;
+}
+
+@media (max-width: 360px) {
+    .titulo {
+        width: 360px;
+        font-size: 40px;
+    }
+
+    .tarjetas, .tarjetas-ataques{
+        flex-direction: column;
+    }
+
+}
