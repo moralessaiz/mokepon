@@ -79,6 +79,8 @@ let alturaQueBuscamos
 let anchoDelMapa = window.innerWidth - 20
 const anchoMaximoDelMapa = 350
 
+let jugadorId = null
+
 if(anchoDelMapa > anchoMaximoDelMapa) {
     anchoDelMapa = anchoMaximoDelMapa - 20
 }
@@ -201,6 +203,21 @@ function iniciarJuego(){
     
     botonReiniciar.addEventListener('click', reiniciarJuego)
 
+    unirseAlJuego()
+
+}
+
+function unirseAlJuego() {
+    fetch('http://localhost:8080/unirse')
+        .then(function(res) {
+            if(res.ok) {
+                res.text()
+                    .then(function(respuesta) {
+                        console.log(respuesta)
+                        jugadorId = respuesta
+                    })
+            }
+        })
 }
 
 function seleccionarMascotaJugador(){
@@ -221,12 +238,25 @@ function seleccionarMascotaJugador(){
         mascotaJugador = inputRatigueya.id
     } else{
         alert("No seleccionaste ninguna mascota. Por favor selecciona una")
-        reiniciarJuego()
     }
+
+    seleccionarMokepon(mascotaJugador)
 
     extraerAtaques(mascotaJugador)
     sectionVerMapa.style.display = 'flex' //mostrar mapa CANVA
     iniciarMapa()
+}
+
+function seleccionarMokepon(mascotaJugador){
+    fetch(`http://localhost:8080/mokepon/${jugadorId}`, {
+        method: "post",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            mokepon: mascotaJugador
+        })
+    })
 }
 
 function extraerAtaques(mascotaJugador) {
